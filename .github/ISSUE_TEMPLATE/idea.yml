@@ -1,0 +1,21 @@
+name: ✨ Idea o funcionalidad
+description: Propón una mejora
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: ¿Qué problema resuelve?
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: ¿Cómo te imaginas la solución?
+    validations:
+      required: true
+  - type: dropdown
+    id: sin-internet
+    attributes:
+      label: ¿Funciona sin conexión?
+      options: ["Sí", "No / requiere internet"]
