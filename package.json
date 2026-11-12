@@ -1,0 +1,13 @@
+{
+  "name": "lavanderiaya",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pedidos de lavandería y tintorería con ticket numerado, estados, saldos por cobrar y aviso por WhatsApp.",
+  "license": "MIT",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "test": "jest --passWithNoTests",
+    "typecheck": "tsc --noEmit"
+  }
+}
