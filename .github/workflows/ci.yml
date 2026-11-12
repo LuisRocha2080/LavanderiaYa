@@ -10,7 +10,7 @@ jobs:
     name: Verificar documentación
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Comprobar archivos obligatorios
         run: |
           for f in README.md LICENSE CONTRIBUTING.md CODE_OF_CONDUCT.md SECURITY.md SUPPORT.md CHANGELOG.md \
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ hashFiles('package-lock.json') != '' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: 20
