@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  documentacion:
+    name: Verificar documentación
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comprobar archivos obligatorios
+        run: |
+          for f in README.md LICENSE CONTRIBUTING.md CODE_OF_CONDUCT.md SECURITY.md SUPPORT.md CHANGELOG.md \
+                   docs/ROADMAP.md docs/SPEC.md docs/PLANNING.md docs/DATOS.md docs/PANTALLAS.md docs/PRUEBAS.md docs/BACKLOG.md docs/NEGOCIO.md; do
+            test -f "$f" || { echo "Falta $f"; exit 1; }
+          done
+          echo "Documentación completa"
+
+  app:
+    name: Pruebas de la app
+    runs-on: ubuntu-latest
+    if: ${{ hashFiles('package-lock.json') != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm test --if-present
