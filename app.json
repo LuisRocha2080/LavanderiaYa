@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "LavanderiaYa",
+    "slug": "lavanderiaya",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "scheme": "lavanderiaya",
+    "plugins": [
+      "expo-router",
+      "expo-sqlite"
+    ],
+    "android": {
+      "package": "com.luisrocha2080.lavanderiaya"
+    },
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
